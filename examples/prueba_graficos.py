@@ -18,8 +18,8 @@ def main() -> None:
     Salida: None, abre las ventanas de matplotlib con los cinco gráficos.
     """
     diagrama_venn(
-        [{1, 2, 3, 4}, {3, 4, 5, 6}, {4, 6, 7, 8}],
-        nombres=["Pares", "Multiplos", "Otros"],
+        [{2,3,5,7}, {1,3,5,7,9}, {1,4,9}],
+        nombres=["Primos", "Impares", "Cuadrados"],
         universo=range(1, 11),
         titulo="Diagrama de Venn",
     )
