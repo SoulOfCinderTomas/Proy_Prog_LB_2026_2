@@ -14,6 +14,7 @@ from .exceptions import (
     FamiliaVaciaError,
     FueraDeDominioError,
     FuncionInvalidaError,
+    GraficoInvalidoError,
     NaturalInvalidoError,
     NoBiyectivaError,
     NoEsEquivalenciaError,
@@ -39,7 +40,16 @@ from .familia import (
     sucesor,
 )
 from .funcion import Funcion
-from .relacion import Relacion, warshall
+from .graphic import (
+    arbol_von_neumann,
+    cajas_von_neumann,
+    diagrama_sagital,
+    diagrama_venn,
+    grafo_relacion,
+    regiones_venn,
+    visualizar_particion,
+)
+from .relacion import Relacion, validar_relacion, warshall
 
 __version__ = "0.1.0"
 
@@ -49,6 +59,7 @@ __all__ = [
     "Relacion",
     "Funcion",
     "warshall",
+    "validar_relacion",
     "validar_equivalencia",
     "clase_de",
     "generar_particion",
@@ -79,4 +90,12 @@ __all__ = [
     "NoBiyectivaError",
     "NoEsEquivalenciaError",
     "ParticionInvalidaError",
+    "GraficoInvalidoError",
+    "regiones_venn",
+    "diagrama_venn",
+    "grafo_relacion",
+    "diagrama_sagital",
+    "visualizar_particion",
+    "cajas_von_neumann",
+    "arbol_von_neumann",
 ]

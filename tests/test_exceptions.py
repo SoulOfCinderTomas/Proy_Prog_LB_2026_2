@@ -22,6 +22,7 @@ from teoria_conjuntos_toolkit import exceptions as exc
         exc.NoBiyectivaError,
         exc.NoEsEquivalenciaError,
         exc.ParticionInvalidaError,
+        exc.GraficoInvalidoError,
     ],
 )
 def test_todas_heredan_de_la_base(clase):
@@ -48,3 +49,7 @@ def test_jerarquia_de_equivalencia_y_particiones():
     assert issubclass(exc.NoEsEquivalenciaError, exc.OperacionInvalidaError)
     assert issubclass(exc.ParticionInvalidaError, exc.FamiliaInvalidaError)
     assert issubclass(exc.ParticionInvalidaError, ValueError)
+
+
+def test_grafico_invalido_es_value_error():
+    assert issubclass(exc.GraficoInvalidoError, ValueError)

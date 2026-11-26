@@ -12,6 +12,7 @@ from teoria_conjuntos_toolkit import (
     Relacion,
     RelacionInvalidaError,
     RelacionNoHomogeneaError,
+    validar_relacion,
     warshall,
 )
 
@@ -402,3 +403,21 @@ def test_cerraduras_combinadas_dan_una_equivalencia():
 
 def test_cerradura_de_equivalencia_no_cambia(congruencia_mod_3):
     assert congruencia_mod_3.cerradura_transitiva() == congruencia_mod_3
+
+
+def test_validar_relacion_devuelve_el_mismo_objeto():
+    R = Relacion([(1, 2)], [1, 2])
+    assert validar_relacion(R) is R
+
+
+@pytest.mark.parametrize("malo", [{(1, 2)}, [(1, 2)], None, "R"])
+def test_validar_relacion_rechaza_lo_que_no_es_relacion(malo):
+    with pytest.raises(RelacionInvalidaError):
+        validar_relacion(malo)
+
+
+def test_es_homogenea():
+    assert Relacion([(1, 2)], [1, 2]).es_homogenea()
+    assert Relacion([], []).es_homogenea()
+    assert not Relacion([(1, "a")], [1], ["a"]).es_homogenea()
+    assert not Relacion([(1, 1)], [1], [1, 2]).es_homogenea()
