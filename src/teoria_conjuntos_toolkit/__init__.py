@@ -6,13 +6,19 @@ from .conjunto import (
     union_generalizada,
 )
 from .exceptions import (
+    ComposicionInvalidaError,
     ConjuntoDemasiadoGrandeError,
     ConjuntoInvalidoError,
     ElementoNoHashableError,
     FamiliaInvalidaError,
     FamiliaVaciaError,
+    FueraDeDominioError,
+    FuncionInvalidaError,
     NaturalInvalidoError,
+    NoBiyectivaError,
     OperacionInvalidaError,
+    RelacionInvalidaError,
+    RelacionNoHomogeneaError,
     TeoriaConjuntosError,
     UniversoInvalidoError,
 )
@@ -23,12 +29,17 @@ from .familia import (
     numero_von_neumann,
     sucesor,
 )
+from .funcion import Funcion
+from .relacion import Relacion, warshall
 
 __version__ = "0.1.0"
 
 __all__ = [
     "Conjunto",
     "FamiliaDeConjuntos",
+    "Relacion",
+    "Funcion",
+    "warshall",
     "como_conjunto",
     "union_generalizada",
     "interseccion_generalizada",
@@ -46,4 +57,10 @@ __all__ = [
     "FamiliaInvalidaError",
     "FamiliaVaciaError",
     "NaturalInvalidoError",
+    "RelacionInvalidaError",
+    "RelacionNoHomogeneaError",
+    "FueraDeDominioError",
+    "ComposicionInvalidaError",
+    "FuncionInvalidaError",
+    "NoBiyectivaError",
 ]
