@@ -6,15 +6,30 @@ from .conjunto import (
     union_generalizada,
 )
 from .exceptions import (
+    ComposicionInvalidaError,
     ConjuntoDemasiadoGrandeError,
     ConjuntoInvalidoError,
     ElementoNoHashableError,
     FamiliaInvalidaError,
     FamiliaVaciaError,
+    FueraDeDominioError,
+    FuncionInvalidaError,
     NaturalInvalidoError,
+    NoBiyectivaError,
+    NoEsEquivalenciaError,
     OperacionInvalidaError,
+    ParticionInvalidaError,
+    RelacionInvalidaError,
+    RelacionNoHomogeneaError,
     TeoriaConjuntosError,
     UniversoInvalidoError,
+)
+from .equivalencia import (
+    clase_de,
+    generar_particion,
+    relacion_desde_particion,
+    validar_equivalencia,
+    validar_particion,
 )
 from .familia import (
     FamiliaDeConjuntos,
@@ -23,12 +38,22 @@ from .familia import (
     numero_von_neumann,
     sucesor,
 )
+from .funcion import Funcion
+from .relacion import Relacion, warshall
 
 __version__ = "0.1.0"
 
 __all__ = [
     "Conjunto",
     "FamiliaDeConjuntos",
+    "Relacion",
+    "Funcion",
+    "warshall",
+    "validar_equivalencia",
+    "clase_de",
+    "generar_particion",
+    "validar_particion",
+    "relacion_desde_particion",
     "como_conjunto",
     "union_generalizada",
     "interseccion_generalizada",
@@ -46,4 +71,12 @@ __all__ = [
     "FamiliaInvalidaError",
     "FamiliaVaciaError",
     "NaturalInvalidoError",
+    "RelacionInvalidaError",
+    "RelacionNoHomogeneaError",
+    "FueraDeDominioError",
+    "ComposicionInvalidaError",
+    "FuncionInvalidaError",
+    "NoBiyectivaError",
+    "NoEsEquivalenciaError",
+    "ParticionInvalidaError",
 ]
