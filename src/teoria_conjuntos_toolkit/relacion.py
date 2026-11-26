@@ -61,6 +61,19 @@ def warshall(matriz: list) -> list:
     return cierre
 
 
+def validar_relacion(objeto: Any) -> "Relacion":
+    """Verifica que un objeto sea una Relacion.
+
+    Entrada: objeto (Any), objeto a verificar.
+    Salida: Relacion, el mismo objeto recibido. Lanza RelacionInvalidaError si no es una Relacion.
+    """
+    if not isinstance(objeto, Relacion):
+        raise RelacionInvalidaError(
+            f"Se esperaba una Relacion, se recibió {type(objeto).__name__}."
+        )
+    return objeto
+
+
 class Relacion:
     __slots__ = ("_dominio", "_codominio", "_pares", "_tabla")
 
@@ -269,13 +282,21 @@ class Relacion:
         """
         return Conjunto(b for _, b in self._pares.elementos)
 
+    def es_homogenea(self) -> bool:
+        """Evalúa si la relación es sobre un solo conjunto, es decir dominio igual a codominio.
+
+        Entrada: ninguna.
+        Salida: bool, True si R ⊆ A × A.
+        """
+        return self._dominio == self._codominio
+
     def _exigir_homogenea(self) -> None:
         """Verifica que la relación sea sobre un solo conjunto (dominio igual a codominio).
 
         Entrada: ninguna.
         Salida: None. Lanza RelacionNoHomogeneaError si dominio y codominio son distintos.
         """
-        if self._dominio != self._codominio:
+        if not self.es_homogenea():
             raise RelacionNoHomogeneaError(
                 "Esta operación requiere una relación sobre un solo conjunto: "
                 f"dominio {self._dominio} y codominio {self._codominio} son distintos."
