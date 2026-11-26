@@ -35,3 +35,27 @@ class FamiliaVaciaError(OperacionInvalidaError):
 
 class NaturalInvalidoError(TeoriaConjuntosError, ValueError):
     pass
+
+
+class RelacionInvalidaError(TeoriaConjuntosError, ValueError):
+    pass
+
+
+class RelacionNoHomogeneaError(OperacionInvalidaError):
+    pass
+
+
+class FueraDeDominioError(OperacionInvalidaError):
+    pass
+
+
+class ComposicionInvalidaError(OperacionInvalidaError):
+    pass
+
+
+class FuncionInvalidaError(RelacionInvalidaError):
+    pass
+
+
+class NoBiyectivaError(OperacionInvalidaError):
+    pass
