@@ -59,3 +59,11 @@ class FuncionInvalidaError(RelacionInvalidaError):
 
 class NoBiyectivaError(OperacionInvalidaError):
     pass
+
+
+class NoEsEquivalenciaError(OperacionInvalidaError):
+    pass
+
+
+class ParticionInvalidaError(FamiliaInvalidaError):
+    pass
