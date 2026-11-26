@@ -20,6 +20,8 @@ from teoria_conjuntos_toolkit import exceptions as exc
         exc.ComposicionInvalidaError,
         exc.FuncionInvalidaError,
         exc.NoBiyectivaError,
+        exc.NoEsEquivalenciaError,
+        exc.ParticionInvalidaError,
     ],
 )
 def test_todas_heredan_de_la_base(clase):
@@ -40,3 +42,9 @@ def test_jerarquia_de_relaciones_y_funciones():
     assert issubclass(exc.FueraDeDominioError, exc.OperacionInvalidaError)
     assert issubclass(exc.ComposicionInvalidaError, exc.OperacionInvalidaError)
     assert issubclass(exc.NoBiyectivaError, exc.OperacionInvalidaError)
+
+
+def test_jerarquia_de_equivalencia_y_particiones():
+    assert issubclass(exc.NoEsEquivalenciaError, exc.OperacionInvalidaError)
+    assert issubclass(exc.ParticionInvalidaError, exc.FamiliaInvalidaError)
+    assert issubclass(exc.ParticionInvalidaError, ValueError)

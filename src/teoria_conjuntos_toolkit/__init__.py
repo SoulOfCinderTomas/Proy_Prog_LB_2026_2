@@ -16,11 +16,20 @@ from .exceptions import (
     FuncionInvalidaError,
     NaturalInvalidoError,
     NoBiyectivaError,
+    NoEsEquivalenciaError,
     OperacionInvalidaError,
+    ParticionInvalidaError,
     RelacionInvalidaError,
     RelacionNoHomogeneaError,
     TeoriaConjuntosError,
     UniversoInvalidoError,
+)
+from .equivalencia import (
+    clase_de,
+    generar_particion,
+    relacion_desde_particion,
+    validar_equivalencia,
+    validar_particion,
 )
 from .familia import (
     FamiliaDeConjuntos,
@@ -40,6 +49,11 @@ __all__ = [
     "Relacion",
     "Funcion",
     "warshall",
+    "validar_equivalencia",
+    "clase_de",
+    "generar_particion",
+    "validar_particion",
+    "relacion_desde_particion",
     "como_conjunto",
     "union_generalizada",
     "interseccion_generalizada",
@@ -63,4 +77,6 @@ __all__ = [
     "ComposicionInvalidaError",
     "FuncionInvalidaError",
     "NoBiyectivaError",
+    "NoEsEquivalenciaError",
+    "ParticionInvalidaError",
 ]
