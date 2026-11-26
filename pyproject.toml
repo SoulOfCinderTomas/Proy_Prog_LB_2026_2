@@ -16,10 +16,9 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Mathematics",
     "Intended Audience :: Education",
 ]
-dependencies = []
+dependencies = ["matplotlib>=3.7", "networkx>=3.0"]
 
 [project.optional-dependencies]
-graficos = ["matplotlib>=3.7", "networkx>=3.0"]
 dev = ["pytest>=7.0", "pytest-cov"]
 
 [tool.setuptools.packages.find]

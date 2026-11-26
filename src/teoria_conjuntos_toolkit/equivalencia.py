@@ -9,13 +9,9 @@ from .conjunto import (
     producto_cartesiano,
     union_generalizada,
 )
-from .exceptions import (
-    NoEsEquivalenciaError,
-    ParticionInvalidaError,
-    RelacionInvalidaError,
-)
+from .exceptions import NoEsEquivalenciaError, ParticionInvalidaError
 from .familia import FamiliaDeConjuntos
-from .relacion import Relacion
+from .relacion import Relacion, validar_relacion
 
 
 def validar_equivalencia(relacion: Relacion) -> Relacion:
@@ -24,10 +20,7 @@ def validar_equivalencia(relacion: Relacion) -> Relacion:
     Entrada: relacion (Relacion), relación sobre un conjunto A.
     Salida: Relacion, la misma relación recibida. Lanza RelacionInvalidaError si no es una Relacion, RelacionNoHomogeneaError si dominio y codominio difieren, y NoEsEquivalenciaError (indicando qué propiedades faltan) si no es de equivalencia.
     """
-    if not isinstance(relacion, Relacion):
-        raise RelacionInvalidaError(
-            f"Se esperaba una Relacion, se recibió {type(relacion).__name__}."
-        )
+    validar_relacion(relacion)
     if not relacion.es_relacion_equivalencia():
         propiedades = (
             ("reflexiva", relacion.es_reflexiva()),

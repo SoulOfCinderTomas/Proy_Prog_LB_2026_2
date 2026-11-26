@@ -67,3 +67,7 @@ class NoEsEquivalenciaError(OperacionInvalidaError):
 
 class ParticionInvalidaError(FamiliaInvalidaError):
     pass
+
+
+class GraficoInvalidoError(TeoriaConjuntosError, ValueError):
+    pass
